@@ -1,0 +1,102 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/books": {
+      "get": {
+        "summary": "list books",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
+    "/api/v1/books/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "Authorization",
+          "in": "header",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "show book",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
+    "api/v1/books": {
+      "post": {
+        "summary": "Creates a book",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "book created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "publisher": {
+                    "type": "string"
+                  },
+                  "editor": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "www.example.com"
+        }
+      }
+    }
+  ]
+}
